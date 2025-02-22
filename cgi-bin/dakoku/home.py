@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 import cgi
@@ -87,7 +87,7 @@ body = f"""
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="shift-jis">
+	<meta charset="utf-8">
 	<title>寝起き打刻</title>
 	<link rel="stylesheet" href="/css/style.css">
 </head>

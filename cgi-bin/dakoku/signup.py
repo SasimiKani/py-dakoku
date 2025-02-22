@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 import cgi
@@ -11,7 +11,7 @@ body = f"""
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="shift-jis">
+	<meta charset="utf-8">
 	<title>サインアップ</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -19,7 +19,7 @@ body = f"""
 	<main>
 		<h1>新規登録</h1>
 		<form action="./regist.py" method="post">
-			<input type="text" name="id" value="{id}" required>
+			<input type="number" name="id" value="{id}" placeholder="ID" equired>
 			<input type="password" name="password" placeholder="パスワード" required>
 			<input type="password" name="password_conf" placeholder="パスワード確認" required>
 			<input type="submit" value="登録" onclick="return regist();">

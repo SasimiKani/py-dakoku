@@ -13,7 +13,7 @@ h1 {
 	background-color: #ccccdd;
 	color: #222;
 }
-input[type=text], input[type=password] {
+input[type=number], input[type=text], input[type=password] {
 	font-size: 1.5em;
 	margin: 5px;
 }

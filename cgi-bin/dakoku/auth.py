@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 import cgi
@@ -11,7 +11,7 @@ body = f"""
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="shift-jis">
+	<meta charset="utf-8">
 	<title>認証</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -19,7 +19,7 @@ body = f"""
 	<main>
 		<h1>ログイン</h1>
 		<form action="./home.py" method="post">
-			<input type="text" name="id" value="{id}" required>
+			<input type="number" name="id" value="{id}" placeholder="ID" required>
 			<input type="password" name="password" placeholder="パスワード" required>
 			<input type="submit" value="ログイン">
 		</form>

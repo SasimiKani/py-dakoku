@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 import cgi
@@ -205,13 +205,13 @@ buf = io.BytesIO()
 plt.savefig(buf, format='png')
 buf.seek(0)
 img_data = buf.getvalue()
-img_base64 = base64.b64encode(img_data).decode('utf-8')
+img_base64 = base64.b64encode(img_data).decode('sjis')
 
 print()
 print(f"""
 <html>
 <head>
-	<meta charset="shift-jis">
+	<meta charset="utf-8">
     <title>寝起きグラフ</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
