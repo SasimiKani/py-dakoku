@@ -13,24 +13,24 @@ password = form.getvalue("password", "")
 auth = refExecute(f"select password from password where ID = {id};")
 
 if len(auth) > 0:
-	if len(auth) == 0:
-		body = f"""
-		<form action="./signup.py" method="post">
-			<input type="hidden" name="id" value="{id}は使われてます">
-		</form>
-		<script>
-		document.forms[0].submit();
-		</script>
-		"""
-		
-		print(body)
-
-# ハッシュ化
-if password != "":
-	hash = sha512(password.encode()).hexdigest()
-
-# 登録
-insertExecute(f"insert into password values({id}, '{hash}');")
+	body = f"""
+	<form action="./signup.py" method="post">
+		<input type="hidden" name="id" value="">
+		<input type="hidden" name="msg" value="ID:{id} is already used!">
+	</form>
+	<script>
+	document.forms[0].submit();
+	</script>
+	"""
+	
+	print(body)
+else:
+    # ハッシュ化
+    if password != "":
+    	hash = sha512(password.encode()).hexdigest()
+    
+    # 登録
+    insertExecute(f"insert into password values({id}, '{hash}');")
 
 body = f"""
 <!DOCTYPE html>
