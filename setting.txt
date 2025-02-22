@@ -1,0 +1,5 @@
+DB:dakoku
+table:stamp
+	column:id,time
+
+service:py-dakoku-service

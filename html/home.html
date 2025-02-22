@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="shift-jis">
+	<title>寝起き打刻</title>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<main>
+		<div>
+			<form action="./home.py" method="post">
+				<label>ID：</label>
+				<input id="id_box" type="number" name="id" value="{id}" size="2">
+				<input type="hidden" name="waking" value="wakeup">
+				<input type="submit" value="参照" onclick="clickRef();">
+				<input type="submit" value="グラフ" onclick="clickGraph();">
+				<input type="submit" value="おはよう" onclick="clickWakeup();">
+				<input type="submit" value="おやすみ" onclick="clickSleep();">
+			</form>
+		</div>
+		<div style="height: 400px; overflow: scroll;">
+			<table border="1">
+				<tr>
+					<th>日付</th>
+					<th>時刻</th>
+					<th>寝起き</th>
+				</tr>
+				{table}
+			</table>
+		</div>
+	</main>
+	
+	<script>
+	function clickRef() {{
+		document.querySelector('[name=waking]').value='';
+	}};
+	function clickGraph() {{
+		document.querySelector('[name=waking]').value='';
+		document.forms[0].action='./graph.py';
+		document.forms[0].method='get';
+	}};
+	function clickWakeup() {{
+		document.querySelector('[name=waking]').value='wakeup';
+	}};
+	function clickSleep() {{
+		document.querySelector('[name=waking]').value='sleep';
+	}};
+	</script>
+</body>
+</html>
