@@ -6,6 +6,7 @@ from src.conn import *
 
 form = cgi.FieldStorage()
 id = form.getvalue("id", "")
+msg = form.getvalue("msg", "")
 
 body = f"""
 <!DOCTYPE html>
@@ -23,7 +24,7 @@ body = f"""
 			<input type="password" name="password" placeholder="パスワード" required>
 			<input type="password" name="password_conf" placeholder="パスワード確認" required>
 			<input type="submit" value="登録" onclick="return regist();">
-			<div id="msg"></div>
+			<div id="msg">{msg}</div>
 		</form>
 	</main>
 	<script>
