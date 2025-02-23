@@ -63,6 +63,9 @@ td {
 	main, table, input[type=submit] {
 		max-width: 100%;
 	}
+	input[type=number] {
+		width: 50%;
+	}
 	main {
 		height: 100vh;
 	}

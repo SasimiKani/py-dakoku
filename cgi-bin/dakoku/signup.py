@@ -20,12 +20,13 @@ body = f"""
 	<main>
 		<h1>新規登録</h1>
 		<form action="./regist.py" method="post">
-			<input type="number" name="id" value="{id}" placeholder="ID" equired>
+            <input type="number" name="id" value="{id}" placeholder="ID(整数)" equired>
 			<input type="password" name="password" placeholder="パスワード" required>
 			<input type="password" name="password_conf" placeholder="パスワード確認" required>
 			<input type="submit" value="登録" onclick="return regist();">
 			<div id="msg">{msg}</div>
 		</form>
+        <a href="./auth.py">登録済みの人：ログイン</a>
 	</main>
 	<script>
 	function regist() {{
