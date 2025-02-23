@@ -7,6 +7,7 @@ import cgitb
 import io
 import base64
 import datetime
+import time
 import matplotlib
 matplotlib.use('Agg')  # GUI環境がない場合にAggバックエンドを使用
 import matplotlib.pyplot as plt
@@ -22,6 +23,7 @@ cgitb.enable()
 form = cgi.FieldStorage()
 hash = form.getvalue("hash", "")
 id = form.getvalue("id", "")
+base_date = form.getvalue("base_date", "")
 
 # 認証情報を取得
 auth = refExecute(f"select password from password where ID = {id};")
@@ -64,21 +66,13 @@ else:
 		"""
 		
 		print(body)
-	
+
+if base_date == "":
+	today = time.localtime()
+	base_date = "%04d-%02d-%02d" % (today.tm_year, today.tm_mon, today.tm_mday)
 
 # データ取得（WAKING: 0=起床, 1=入眠）
-stamp = refExecute(f"""
-select
-    WAKING,
-    TO_CHAR(TIME, 'YYYY-MM-DD'),
-    TO_CHAR(TIME, 'HH24:MI:SS')
-from
-    stamp
-where
-    ID = {id}
-order by
-    TIME asc;
-""")
+stamp = refExecute(f"select * from graph_data({id}, to_date('{base_date}', 'YYYY-MM-DD'));")
 
 cats = {0: "起床", 1: "入眠"}
 
@@ -217,6 +211,27 @@ print(f"""
 </head>
 <body>
     <h1>寝起きグラフ</h1>
+    <form action="./graph.py" method="post">
+    	<label>日付：</label>
+    	<input type="date" name="base_date" value="{base_date}" size="10">
+		<input type="hidden" name="hash" value="{hash}">
+		<input type="hidden" name="id" value="{id}">
+    	<label>以前1週間を表示</label>
+		<input type="submit" value="更新" onclick="return clickUpdate();">
+    	<div id="msg"></div>
+		<script>
+		function clickUpdate() {{
+			base_date = document.querySelector("input[name=base_date]").value;
+			// チェック
+			if (base_date.match("^[0-9]{{4}}-[0-9]{{2}}-[0-9]{{2}}$") == null) {{
+				document.querySelector("#msg").innerText = "日付は YYYY-MM-DD で入力";
+				return false;
+			}}
+			document.querySelector("#msg").innerText = "";
+			return true;
+		}}
+		</script>
+    </form>
     <img src="data:image/png;base64,{img_base64}" alt="睡眠区間グラフ">
     <form action="./home.py" method="post">
 		<input type="hidden" name="hash" value="{hash}">
