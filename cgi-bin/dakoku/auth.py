@@ -19,7 +19,7 @@ body = f"""
 	<main>
 		<h1>ログイン</h1>
 		<form action="./home.py" method="post">
-			<input type="text" name="id" value="{id}" required>
+			<input type="number" name="id" value="{id}" placeholder="ID(整数)" required>
 			<input type="password" name="password" placeholder="パスワード" required>
 			<input type="submit" value="ログイン">
 		</form>
