@@ -23,6 +23,7 @@ body = f"""
 			<input type="password" name="password" placeholder="パスワード" required>
 			<input type="submit" value="ログイン">
 		</form>
+		<a href="./signup.py">未登録の人：サインアップ</a>
 	</main>
 </body>
 </html>

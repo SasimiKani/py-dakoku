@@ -26,6 +26,7 @@ body = f"""
 			<input type="submit" value="登録" onclick="return regist();">
 			<div id="msg">{msg}</div>
 		</form>
+		<a href="./auth.py">登録済みの人：ログイン</a>
 	</main>
 	<script>
 	function regist() {{
