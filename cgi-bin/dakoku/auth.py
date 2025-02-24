@@ -13,6 +13,7 @@ body = f"""
 <head>
 	<meta charset="utf-8">
 	<title>認証</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>

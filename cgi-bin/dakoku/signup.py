@@ -14,6 +14,7 @@ body = f"""
 <head>
 	<meta charset="utf-8">
 	<title>サインアップ</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
