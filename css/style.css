@@ -13,9 +13,15 @@ h1 {
 	background-color: #ccccdd;
 	color: #222;
 }
-input[type=number], input[type=text], input[type=password], input[type=date] {
+input[type=number], input[type=text], input[type=password] {
 	font-size: 1.5em;
 	margin: 5px;
+}
+input[type=date], select {
+	font-size: 1.5em;
+	margin: 5px;
+	border-radius: 5px;
+	background-color: white;
 }
 div#msg {
 	color: red;
