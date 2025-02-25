@@ -7,6 +7,7 @@ from src.conn import *
 form = cgi.FieldStorage()
 id = form.getvalue("id", "")
 
+print("Content-Type: text/html; charset=UTF-8")
 body = f"""
 <!DOCTYPE html>
 <html>

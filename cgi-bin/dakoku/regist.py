@@ -32,6 +32,7 @@ else:
 	# 登録
 	insertExecute(f"insert into password values({id}, '{hash}');")
 
+print("Content-Type: text/html; charset=UTF-8")
 body = f"""
 <!DOCTYPE html>
 <html>

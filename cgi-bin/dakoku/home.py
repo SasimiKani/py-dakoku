@@ -83,6 +83,7 @@ if stamp != None:
 	</tr>
 	""", stamp) ))
 
+print("Content-Type: text/html; charset=UTF-8")
 body = f"""
 <!DOCTYPE html>
 <html lang="ja">

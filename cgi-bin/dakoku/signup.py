@@ -8,6 +8,7 @@ form = cgi.FieldStorage()
 id = form.getvalue("id", "")
 msg = form.getvalue("msg", "")
 
+print("Content-Type: text/html; charset=UTF-8")
 body = f"""
 <!DOCTYPE html>
 <html>

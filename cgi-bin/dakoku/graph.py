@@ -209,6 +209,7 @@ buf.seek(0)
 img_data = buf.getvalue()
 img_base64 = base64.b64encode(img_data).decode('sjis')
 
+print("Content-Type: text/html; charset=UTF-8")
 print()
 print(f"""
 <html>
