@@ -89,7 +89,7 @@ body = f"""
 <head>
 	<meta charset="shift-jis">
 	<title>寝起き打刻</title>
-    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>

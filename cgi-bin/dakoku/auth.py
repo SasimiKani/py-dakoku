@@ -13,8 +13,8 @@ body = f"""
 <head>
 	<meta charset="shift-jis">
 	<title>認証</title>
-    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 	<main>

@@ -4,24 +4,24 @@ CREATE FUNCTION graph_data_m (
 	base_date date
 )
 RETURNS TABLE (
-    WAKING integer,
-    STAMP_YMD text,
-    STAMP_HMS text
+	WAKING integer,
+	STAMP_YMD text,
+	STAMP_HMS text
 ) AS $$
 BEGIN
 	RETURN QUERY
 	select
-	    stamp.WAKING,
-	    TO_CHAR(stamp.TIME, 'YYYY-MM-DD'),
-	    TO_CHAR(stamp.TIME, 'HH24:MI:SS')
+		stamp.WAKING,
+		TO_CHAR(stamp.TIME, 'YYYY-MM-DD'),
+		TO_CHAR(stamp.TIME, 'HH24:MI:SS')
 	from
-	    stamp
+		stamp
 	where
-	    stamp.ID = p_id AND
-	    stamp.TIME BETWEEN
-	    	base_date - interval '1 month' + interval '1 day' AND
-	    	base_date + interval '1 day'
+		stamp.ID = p_id AND
+		stamp.TIME BETWEEN
+			base_date - interval '1 month' + interval '1 day' AND
+			base_date + interval '1 day'
 	order by
-	    stamp.TIME asc;
+		stamp.TIME asc;
 END;
 $$ LANGUAGE plpgsql;
