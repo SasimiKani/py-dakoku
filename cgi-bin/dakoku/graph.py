@@ -25,6 +25,8 @@ hash = form.getvalue("hash", "")
 id = form.getvalue("id", "")
 base_date = form.getvalue("base_date", "")
 
+type = form.getvalue("type", "")
+
 # 認証情報を取得
 auth = refExecute(f"select password from password where ID = {id};")
 
@@ -72,7 +74,13 @@ if base_date == "":
 	base_date = "%04d-%02d-%02d" % (today.tm_year, today.tm_mon, today.tm_mday)
 
 # データ取得（WAKING: 0=起床, 1=入眠）
-stamp = refExecute(f"select * from graph_data({id}, to_date('{base_date}', 'YYYY-MM-DD'));")
+if type == "week":
+	stamp = refExecute(f"select * from graph_data({id}, to_date('{base_date}', 'YYYY-MM-DD'));")
+elif type == "month":
+	stamp = refExecute(f"select * from graph_data_m({id}, to_date('{base_date}', 'YYYY-MM-DD'));")
+else:
+	stamp = refExecute(f"select * from graph_data({id}, to_date('{base_date}', 'YYYY-MM-DD'));")
+	type = "week"
 
 cats = {0: "起床", 1: "入眠"}
 
@@ -217,10 +225,18 @@ print(f"""
     	<input type="date" name="base_date" value="{base_date}" size="10">
 		<input type="hidden" name="hash" value="{hash}">
 		<input type="hidden" name="id" value="{id}">
-    	<label>以前1週間を表示</label>
+    	<label>以前1</label>
+    	<select name="type">
+    		<option value="week">週間</option>
+    		<option value="month">ヶ月</option>
+    	</select>
+    	<label>を表示</label>
 		<input type="submit" value="更新" onclick="return clickUpdate();">
     	<div id="msg"></div>
 		<script>
+		(function() {{
+			document.querySelector("select[name=type]").value = "{type}";
+		}})();
 		function clickUpdate() {{
 			base_date = document.querySelector("input[name=base_date]").value;
 			// チェック
