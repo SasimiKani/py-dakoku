@@ -212,9 +212,10 @@ img_base64 = base64.b64encode(img_data).decode('sjis')
 print("Content-Type: text/html; charset=UTF-8")
 print()
 print(f"""
-<html>
+<html lang="ja" translate="no">
 <head>
 	<meta charset="utf-8">
+	<meta name="google" content="notranslate">
 	<title>寝起きグラフ</title>
 	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="/css/style.css">

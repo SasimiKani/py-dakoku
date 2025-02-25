@@ -11,9 +11,10 @@ msg = form.getvalue("msg", "")
 print("Content-Type: text/html; charset=UTF-8")
 body = f"""
 <!DOCTYPE html>
-<html>
+<html lang="ja" translate="no">
 <head>
 	<meta charset="utf-8">
+	<meta name="google" content="notranslate">
 	<title>サインアップ</title>
 	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="/css/style.css">

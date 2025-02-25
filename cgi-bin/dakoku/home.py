@@ -86,9 +86,10 @@ if stamp != None:
 print("Content-Type: text/html; charset=UTF-8")
 body = f"""
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" translate="no">
 <head>
 	<meta charset="utf-8">
+	<meta name="google" content="notranslate">
 	<title>寝起き打刻</title>
 	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="/css/style.css">

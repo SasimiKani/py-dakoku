@@ -35,8 +35,10 @@ else:
 print("Content-Type: text/html; charset=UTF-8")
 body = f"""
 <!DOCTYPE html>
-<html>
+<html lang="ja" translate="no">
 <head>
+	<meta charset="utf-8">
+	<meta name="google" content="notranslate">
 	<title>登録</title>
 </head>
 <body>
