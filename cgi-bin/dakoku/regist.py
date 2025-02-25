@@ -25,12 +25,12 @@ if len(auth) > 0:
 	
 	print(body)
 else:
-    # ハッシュ化
-    if password != "":
-    	hash = sha512(password.encode()).hexdigest()
-    
-    # 登録
-    insertExecute(f"insert into password values({id}, '{hash}');")
+	# ハッシュ化
+	if password != "":
+		hash = sha512(password.encode()).hexdigest()
+	
+	# 登録
+	insertExecute(f"insert into password values({id}, '{hash}');")
 
 body = f"""
 <!DOCTYPE html>

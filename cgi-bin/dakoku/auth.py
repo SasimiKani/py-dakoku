@@ -13,8 +13,8 @@ body = f"""
 <head>
 	<meta charset="utf-8">
 	<title>認証</title>
-    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 	<main>
@@ -24,7 +24,7 @@ body = f"""
 			<input type="password" name="password" placeholder="パスワード" required>
 			<input type="submit" value="ログイン">
 		</form>
-        <a href="./signup.py">未登録の人：サインアップ</a>
+		<a href="./signup.py">未登録の人：サインアップ</a>
 	</main>
 </body>
 </html>
