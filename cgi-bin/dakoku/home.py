@@ -49,15 +49,6 @@ if id != "":
 		print(body)
 		exit()
 
-	sql = ""
-	if waking == "wakeup":
-		sql = f"insert into stamp values ({id}, 0, now());"
-	elif waking == "sleep":
-		sql = f"insert into stamp values ({id}, 1, now());"
-
-	if waking != "":
-		insertExecute(sql)
-
 def formatDelta(delta):
 	if delta == None:
 		return "-"
