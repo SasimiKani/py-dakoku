@@ -49,15 +49,6 @@ if id != "":
 		print(body)
 		exit()
 
-	sql = ""
-	if waking == "wakeup":
-		sql = f"insert into stamp values ({id}, 0, now());"
-	elif waking == "sleep":
-		sql = f"insert into stamp values ({id}, 1, now());"
-
-	if waking != "":
-		insertExecute(sql)
-
 def formatDelta(delta):
 	if delta == None:
 		return "-"
@@ -137,6 +128,7 @@ body = f"""
 	
 	function clickRef() {{
 		document.querySelector('[name=waking]').value='';
+		document.forms[0].action='./home.py';
 	}};
 	function clickGraph() {{
 		document.querySelector('[name=waking]').value='';
@@ -144,9 +136,11 @@ body = f"""
 	}};
 	function clickWakeup() {{
 		document.querySelector('[name=waking]').value='wakeup';
+		document.forms[0].action='./reg_stamp.py';
 	}};
 	function clickSleep() {{
 		document.querySelector('[name=waking]').value='sleep';
+		document.forms[0].action='./reg_stamp.py';
 	}};
 	</script>
 </body>
