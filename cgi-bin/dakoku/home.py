@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import cgi
+print("Content-Type: text/html; charset=shift-jis")
+
 from hashlib import sha512
 from src.conn import *
 
@@ -31,6 +33,7 @@ if id != "":
 		"""
 		
 		print(body)
+		exit()
 
 	# 認証
 	elif hash == "" or auth[0][0] != hash:
@@ -44,6 +47,7 @@ if id != "":
 		"""
 		
 		print(body)
+		exit()
 
 	sql = ""
 	if waking == "wakeup":

@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import cgi
+print("Content-Type: text/html; charset=shift-jis")
+
 from src.conn import *
 
 form = cgi.FieldStorage()
