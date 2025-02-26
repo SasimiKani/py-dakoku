@@ -3,7 +3,7 @@ connection = None
 
 def connect():
 	global connection
-	connection = psycopg2.connect("host=localhost port=5432 dbname=dakoku user=natura password=natura")
+	connection = psycopg2.connect("host=34.31.104.64 port=5432 dbname=dakoku user=natura password=natura")
 	connection.get_backend_pid()
 
 def refExecute(query):
