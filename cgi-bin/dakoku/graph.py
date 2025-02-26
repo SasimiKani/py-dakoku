@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import cgi
+print("Content-Type: text/html; charset=UTF-8")
+
 from hashlib import sha512
 import cgitb
 import io
@@ -44,6 +46,7 @@ if id != "":
 		"""
 		
 		print(body)
+		exit()
 
 	# 認証
 	elif hash == "" or auth[0][0] != hash:
@@ -57,6 +60,7 @@ if id != "":
 		"""
 		
 		print(body)
+		exit()
 else:
 		body = f"""
 		<form action="./auth.py" method="post">
@@ -68,6 +72,7 @@ else:
 		"""
 		
 		print(body)
+		exit()
 
 if base_date == "":
 	today = time.localtime()
@@ -209,7 +214,6 @@ buf.seek(0)
 img_data = buf.getvalue()
 img_base64 = base64.b64encode(img_data).decode('sjis')
 
-print("Content-Type: text/html; charset=UTF-8")
 print()
 print(f"""
 <html lang="ja" translate="no">

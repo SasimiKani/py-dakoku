@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 
 import cgi
+print("Content-Type: text/html; charset=UTF-8")
+
 from src.conn import *
 
 form = cgi.FieldStorage()
 id = form.getvalue("id", "")
 
-print("Content-Type: text/html; charset=UTF-8")
 body = f"""
 <!DOCTYPE html>
 <html lang="ja" translate="no">

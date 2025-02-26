@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import cgi
+print("Content-Type: text/html; charset=UTF-8")
+
 from hashlib import sha512
 from src.conn import *
 
@@ -24,6 +26,7 @@ if len(auth) > 0:
 	"""
 	
 	print(body)
+	exit()
 else:
 	# ハッシュ化
 	if password != "":
@@ -32,7 +35,6 @@ else:
 	# 登録
 	insertExecute(f"insert into password values({id}, '{hash}');")
 
-print("Content-Type: text/html; charset=UTF-8")
 body = f"""
 <!DOCTYPE html>
 <html lang="ja" translate="no">
