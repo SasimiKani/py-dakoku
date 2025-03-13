@@ -178,6 +178,12 @@ ax.scatter(x_scatter[cats[1]], y_scatter[cats[1]], label=cats[1], color='red', s
 ax.xaxis_date()
 date_fmt = mdates.DateFormatter('%Y-%m-%d')
 ax.xaxis.set_major_formatter(date_fmt)
+
+# 横軸ラベルを全て表示するために、stampの全日付からユニークな値を抽出
+unique_dates = sorted(set([mdates.date2num(datetime.datetime.strptime(date_str, '%Y-%m-%d').date()) 
+                             for _, date_str, _ in stamp]))
+ax.set_xticks(unique_dates)
+
 fig.autofmt_xdate()
 
 # 縦軸（時刻）のフォーマッター（hh:mm:ss形式）
