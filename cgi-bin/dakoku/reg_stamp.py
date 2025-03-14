@@ -60,10 +60,11 @@ if waking != "":
 
 body = f"""
 <form action="./home.py" method="post">
-	<input type="hidden" name="hash" value="{hash}">
+	<input type="hidden" name="hash">
 	<input type="hidden" name="id" value="{id}">
 </form>
 <script>
+document.querySelector('[name=hash]').value=localStorage["token"];
 document.forms[0].submit();
 </script>
 """

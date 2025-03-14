@@ -46,7 +46,7 @@ body = f"""
 <body>
 	<form action="./home.py" method="post">
 		<input type="hidden" name="id" value="{id}">
-		<input type="hidden" name="hash" value="{hash}">
+		<input type="hidden" name="hash">
 	</form>
 	
 	<script>

@@ -78,6 +78,13 @@ if stamp != None:
 	</tr>
 	""", stamp) ))
 
+# 認証用トークン
+print(f"""
+<script>
+localStorage["token"] = "{hash}";
+</script>
+""")
+
 body = f"""
 <!DOCTYPE html>
 <html lang="ja" translate="no">
@@ -93,7 +100,7 @@ body = f"""
 		<h1>ホーム</h1>
 		<div>
 			<form action="./home.py" method="post">
-				<input type="hidden" name="hash" value="{hash}">
+				<input type="hidden" name="hash">
 				<label>ID：</label>
 				<input id="id_box" type="number" name="id" value="{id}" size="2">
 				<input type="hidden" name="waking" value="">
@@ -127,18 +134,22 @@ body = f"""
 	}}
 	
 	function clickRef() {{
+		document.querySelector('[name=hash]').value=localStorage["token"];
 		document.querySelector('[name=waking]').value='';
 		document.forms[0].action='./home.py';
 	}};
 	function clickGraph() {{
+		document.querySelector('[name=hash]').value=localStorage["token"];
 		document.querySelector('[name=waking]').value='';
 		document.forms[0].action='./graph.py';
 	}};
 	function clickWakeup() {{
+		document.querySelector('[name=hash]').value=localStorage["token"];
 		document.querySelector('[name=waking]').value='wakeup';
 		document.forms[0].action='./reg_stamp.py';
 	}};
 	function clickSleep() {{
+		document.querySelector('[name=hash]').value=localStorage["token"];
 		document.querySelector('[name=waking]').value='sleep';
 		document.forms[0].action='./reg_stamp.py';
 	}};
