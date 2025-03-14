@@ -234,7 +234,7 @@ print(f"""
 	<form action="./graph.py" method="post">
 		<label>日付：</label>
 		<input type="date" name="base_date" value="{base_date}" size="10">
-		<input type="hidden" name="hash" value="{hash}">
+		<input type="hidden" name="hash">
 		<input type="hidden" name="id" value="{id}">
 		<label>以前1</label>
 		<select name="type">
@@ -256,15 +256,22 @@ print(f"""
 				return false;
 			}}
 			document.querySelector("#msg").innerText = "";
+			document.querySelectorAll('[name=hash]')[0].value=localStorage["token"];
 			return true;
 		}}
 		</script>
 	</form>
 	<img src="data:image/png;base64,{img_base64}" alt="睡眠区間グラフ">
 	<form action="./home.py" method="post">
-		<input type="hidden" name="hash" value="{hash}">
+		<input type="hidden" name="hash">
 		<input type="hidden" name="id" value="{id}">
-		<input type="submit" value="ホーム">
+		<input type="submit" value="ホーム" onclick="return clickHome();">
+		<script>
+		function clickHome() {{
+			document.querySelectorAll('[name=hash]')[1].value=localStorage["token"];
+			return true;
+		}}
+		</script>
 	</form>
 </body>
 </html>
