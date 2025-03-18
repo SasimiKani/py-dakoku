@@ -49,7 +49,6 @@ input[type=submit] {
 }
 #div_table table {
 	width: 100%;
-	max-width: 400px;
 	border-collapse: collapse;
 }
 #div_table table tr:nth-child(odd) {
