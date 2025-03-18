@@ -103,10 +103,24 @@ body = f"""
 				<label>ID：</label>
 				<input id="id_box" type="number" name="id" value="{id}" size="2">
 				<input type="hidden" name="waking" value="">
-				<input type="submit" value="参照" onclick="clickRef();">
-				<input type="submit" value="グラフ" onclick="clickGraph();">
-				<input type="submit" value="おはよう" onclick="clickWakeup();">
-				<input type="submit" value="おやすみ" onclick="clickSleep();">
+				<table id="menu_table">
+					<tr>
+						<td>
+							<input type="submit" value="参照" onclick="clickRef();">
+						</td>
+						<td>
+							<input type="submit" value="グラフ" onclick="clickGraph();">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="submit" value="おはよう" onclick="clickWakeup();">
+						</td>
+						<td>
+							<input type="submit" value="おやすみ" onclick="clickSleep();">
+						</td>
+					</tr>
+				</table>
 				<input type="hidden" value="参照・登録" onclick="clickRegist();">
 			</form>
 		</div>
