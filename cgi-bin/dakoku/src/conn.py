@@ -3,7 +3,13 @@ connection = None
 
 def connect():
 	global connection
-	connection = psycopg2.connect("host=localhost port=5432 dbname=dakoku user=natura password=natura")
+	host = "aws-0-ap-northeast-1.pooler.supabase.com"
+	port = "5432"
+	dbname = "dakoku"
+	user = "postgres.hdxrhoihbxnrctyekwoi"
+	password = "natura"
+	connection = psycopg2.connect(f"host={host} port={port} dbname={dbname} user={user} password={password}")
+	
 	connection.get_backend_pid()
 
 def refExecute(query):
