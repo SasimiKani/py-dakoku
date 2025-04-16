@@ -78,6 +78,42 @@ if stamp != None:
 	</tr>
 	""", stamp) ))
 
+	d = {}
+	for i in stamp:
+		id, waking, datetime, delta = i
+		date, time = datetime.split(" ")
+		if d.get(date) == None:
+			d[date] = []
+		
+		d[date].append({
+			f'{["wekeup", "sleep"][waking]}': {
+				"time": time,
+				"delta": formatDelta(delta)
+			}
+		})
+
+	from json import dumps
+	sd = dumps(d).replace(" ", "")
+
+	nest, fsd = 0, ""
+	for i in range(len(sd)):
+		c = sd[i]
+		if i < len(sd) - 1:
+			n = sd[i+1]
+		else:
+			n = ""
+		
+		fsd += c
+		
+		if c in ["{", "["]:
+			nest += 1
+		
+		if n in ["}", "]"]:
+			nest -= 1
+		
+		if c in ["{", "[", ","] or n in ["}", "]"]:
+			fsd += "\n" + "".join("  " for _ in range(nest))
+
 # 認証用トークン
 print(f"""
 <script>
