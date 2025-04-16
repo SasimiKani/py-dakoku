@@ -1,0 +1,13 @@
+# DB
+## サイト
+https://supabase.com/dashboard/project/hdxrhoihbxnrctyekwoi/database/schemas
+
+## psqlコマンド
+```
+psql -h aws-0-ap-northeast-1.pooler.supabase.com -p 5432 -d dakoku -U postgres.hdxrhoihbxnrctyekwoi
+# natura
+```
+
+# アプリサーバー
+## サイト
+https://dashboard.render.com/
