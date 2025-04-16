@@ -15,7 +15,16 @@ matplotlib.use('Agg')  # GUI環境がない場合にAggバックエンドを使�
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.ticker import FuncFormatter
-plt.rcParams['font.family'] = 'Noto Sans CJK JP'
+from matplotlib import rcParams
+
+rcParams['font.family'] = 'sans-serif'
+rcParams['font.sans-serif'] = ['Noto Sans CJK JP']
+rcParams['axes.unicode_minus'] = False
+
+# 事前にフォントを matplotlib に登録しておく
+import matplotlib.font_manager as fm
+font_path = 'fonts/NotoSansCJKjp-Regular.otf'
+fm.fontManager.addfont(font_path)
 
 from src.conn import *
 
