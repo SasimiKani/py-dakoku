@@ -14,6 +14,7 @@ def connect():
 	connection = psycopg2.connect(f"host={host} port={port} dbname={dbname} user={user} password={password}")
 	
 	connection.get_backend_pid()
+	connection.cursor().execute("SET TIME ZONE 'Asia/Tokyo'")
 
 def refExecute(query):
 	res = None
